@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './Login.scss'
+import '../App.scss'
 
 // -- Controlled component - React form -- //
 export default class SignupForm extends React.Component {

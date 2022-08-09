@@ -19,14 +19,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-<<<<<<< HEAD
 
-      render json: @user
-
-=======
       render json: @user, 
-      #status: :created, location: @user
->>>>>>> f358235acb5e898aa513837c3c4c2762aaea352d
+
     else
       render json: @user.errors, status: :unprocessable_entity
     end

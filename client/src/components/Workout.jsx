@@ -23,7 +23,7 @@ export default function Workout () {
   const [durations, setDurations] = useState("");
   const {
     units,
-    setUnits,
+    // setUnits,
     setUnitFunction,
     calculateWeightInLbs,
   } = AppUnits();
@@ -61,7 +61,7 @@ export default function Workout () {
         return exercise.name.match(regex)
       })
     }
-    console.log('matches', matches)
+
     setSuggestions(matches)
     setQuery(query)
   }
@@ -96,7 +96,7 @@ export default function Workout () {
   };
 
   const addExercise = async() => {
- // object with exercise information
+//  object with exercise information
     const exerciseData = {
       exercise_id: randNumGen,
       workout_id: queryItems.id,
@@ -104,10 +104,10 @@ export default function Workout () {
       exercise_duration: durations,
     }
 //request body
-    const reqData = {"exercise": exerciseData}
+    // const reqData = {"exercise": exerciseData}
 
       // async function to post the exercise object to backend
-      const response = await Axios.post('/api/carts/add_exercise',   {"exercise_id": queryItems.id, "exercise_duration":durations})
+      await Axios.post('/api/carts/add_exercise',   {"exercise_id": queryItems.id, "exercise_duration":durations})
       .then((response) => {
         console.log(response);
       })
@@ -131,7 +131,6 @@ export default function Workout () {
               <br/>
                   <Form.Group className="mt-2">
                     <FloatingLabel
-                    controlId="floatingInput"
                     label="Choose Your Activity"
                     className="mb-3"
                     >
@@ -163,7 +162,6 @@ export default function Workout () {
                 <Col>
                   <Form.Group className="mt-2">
                     <FloatingLabel
-                    controlId="floatingInput"
                     label="Enter Duration (Minutes)"
                     className="mb-3"
                     >
@@ -190,7 +188,7 @@ export default function Workout () {
                     name="unit"
                     type="radio"
                     id="inline-radio-1"
-                    onClick={() => setUnitFunction("English")}
+                    onChange={() => setUnitFunction("English")}
                     checked={units.name === "English"}
                   />
                   <Form.Check
@@ -199,7 +197,7 @@ export default function Workout () {
                     name="unit"
                     type="radio"
                     id="inline-radio-2"
-                    onClick={() => setUnitFunction("Metric")}
+                    onChange={() => setUnitFunction("Metric")}
                     checked={units.name === "Metric"}
                   />
                 </div>

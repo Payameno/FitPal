@@ -11238,3 +11238,117 @@ Processing by Api::CartsController#add_exercise as HTML
 Completed 204 No Content in 4ms (ActiveRecord: 0.4ms | Allocations: 1615)
 
 
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:06:58 +0000
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.9ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 87ms (Views: 53.4ms | ActiveRecord: 3.0ms | Allocations: 33552)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:07:01 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (1.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 1.2ms | Allocations: 25745)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:07:49 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.9ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 91ms (Views: 62.0ms | ActiveRecord: 4.5ms | Allocations: 33566)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:07:51 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.7ms | Allocations: 25745)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:08:26 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.9ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.9ms | Allocations: 25722)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:09:21 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (2.9ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 2.9ms | Allocations: 25706)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:11:42 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (1.1ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 1.1ms | Allocations: 25723)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:11:57 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.7ms | Allocations: 25723)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:13:42 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.8ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.8ms | Allocations: 25706)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:14:58 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.7ms | Allocations: 25706)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:15:45 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.6ms | Allocations: 25707)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:20:01 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (1.3ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 1.3ms | Allocations: 25707)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:20:27 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.6ms | Allocations: 25706)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:21:10 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.8ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.8ms | Allocations: 25706)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:22:16 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 89ms (Views: 87.6ms | ActiveRecord: 0.7ms | Allocations: 25707)
+
+
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 05:25:40 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (1.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 1.6ms | Allocations: 25707)
+
+

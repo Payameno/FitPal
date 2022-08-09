@@ -9,7 +9,7 @@ export function AppUnits() {
   });
 
   const setUnitFunction = function(unit) {
-    if (unit == "English") {
+    if (unit === "English") {
       setUnits({
         name: "English",
         mass: "LBS",
@@ -17,7 +17,7 @@ export function AppUnits() {
       });
     }
   
-    if (unit == "Metric") {
+    if (unit === "Metric") {
       setUnits({
         name: "Metric",
         mass: "KGS",
