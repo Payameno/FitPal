@@ -48,3 +48,8 @@ form{
   color: black;
   display: block;
 }
+
+.scroll-suggestions {
+  overflow-y: scroll;
+  height: 50px !important;
+}

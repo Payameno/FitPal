@@ -16,7 +16,6 @@ export default function Workout () {
   const [showResults, setShowResults] = useState(false);
   const [showSummary, setshowSummary] = useState(true);
   const [query, setQuery] = useState("");
-  // const [queryID, setQueryID] = useState(0);
   const [queryItems, setQueryItems] = useState({});
   const [suggestions, setSuggestions] = useState([]);
   const [exerciseCalories, setExerciseCalories] = useState("");
@@ -69,6 +68,7 @@ export default function Workout () {
   const onSuggestHandler = (query) => {
     setQuery(query.name);
     setQueryItems(query);
+    console.log('query-name', query.name);
     setSuggestions([]);
   };
 
@@ -107,7 +107,7 @@ export default function Workout () {
     const reqData = {"exercise": exerciseData}
 
       // async function to post the exercise object to backend
-      const response = await Axios.post('/api/carts/add_exercise',   {"exercise_id": queryItems.id, "exercise_duration":durations})
+      const response = await Axios.post('/api/carts/add_exercise', {"exercise_id": queryItems.id, "exercise_duration":durations})
       .then((response) => {
         console.log(response);
       })
@@ -142,11 +142,12 @@ export default function Workout () {
                       onBlur={() => {
                         setTimeout(() => {
                           setSuggestions([])
-                        }, 100)
+                        }, 999)
                       }}
                       value={query}
                       placeholder="Choose Your Activity"
                       />
+                      <span className="scroll-suggestions">
                           {suggestions && suggestions.map((suggestion, index) =>
                             <div 
                             key={index} 
@@ -156,7 +157,7 @@ export default function Workout () {
                               {suggestion.name}
                             </div>
                           )}
-
+                      </span>
                     </FloatingLabel>
                   </Form.Group>
                   <Row>
