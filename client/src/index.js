@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk))
 );
 
 

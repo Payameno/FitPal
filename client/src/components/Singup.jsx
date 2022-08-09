@@ -115,7 +115,7 @@ class Signup extends React.Component {
             <Row>
               <Col>
               <Form.Group className="mb-2">
-              <Form.Label>User Name</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control 
               type="text"
               name= "username"
