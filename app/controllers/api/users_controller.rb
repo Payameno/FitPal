@@ -23,7 +23,11 @@ class Api::UsersController < ApplicationController
 
 =======
       session[:user_id] = @user.id
+<<<<<<< HEAD
 >>>>>>> b3f9727bb02770173bc9ee8b62626ddd5254d3d1
+=======
+>>>>>>> 0ddb0b56cde8d54254b4ae828fa960cbf54c2faf
+>>>>>>> e0079ce1dcca2c46cd58ce031a89c6fa3f4d6f8e
       render json: @user, 
 
     else

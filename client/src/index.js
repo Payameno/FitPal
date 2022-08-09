@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
