@@ -10,7 +10,8 @@ export default function BasicExample() {
   // const [credentials, setCredentials] = useState({});
 const submitLogin = function (event) {
   event.preventDefault();
-  console.log('event.target', event.target.elements);
+  console.log('username(email)', event.target.elements[0].value);
+  console.log('password', event.target.elements[1].value);
 }
   // handleSubmit = async(event) => {
   //   event.preventDefault();
