@@ -17,11 +17,11 @@ class Api::UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
 
-      render json: @user, 
-      
+      render json: @user
+
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -49,10 +49,8 @@ class Api::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-<<<<<<< HEAD
-      params.require(:user).permit(:first_name, :last_name, :username, :email, :age, :weight_kg, :height_cm, :password, :password_confirmation)
-=======
+
       params.require(:user).permit(:first_name, :last_name, :is_admin, :username, :email, :city, :province, :country, :age, :birthday, :weight_kg, :height_cm, :avatar_url, :password, :password_confirmation)
->>>>>>> f7d25661f9cfa1bc02a3722ad6293e1d479372dd
+
     end
 end
