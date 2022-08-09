@@ -5,10 +5,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { connect } from 'react-redux';
+import { addUser } from '../actions/addUser.js';
 import '../App.scss'
 
 // -- Controlled component - React form -- //
-export default class SignupForm extends React.Component {
+class Signup extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,36 +23,57 @@ export default class SignupForm extends React.Component {
       weight_kg: '',
       height_cm: '',
       password: '',
-      password_confirmation: '',
+      passwordConfirmation: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+//receive form data on click
   handleInputChange(event) {
+    const { name, value } = event.target;
     this.setState({
-        [event.target.name]: event.target.value,
+        [name]: value,
     })
   }
 
     handleSubmit = async(event) => {
       event.preventDefault();
+      const { first_name, last_name, username, email, password, passwordConfirmation, age, weight_kg, height_cm, } = this.state;
+      const user = {
+        first_name,
+        last_name,
+        username,
+        email,
+        password,
+        passwordConfirmation,
+        age, 
+        weight_kg,
+        height_cm,
+      }
 
-      await axios
-      .post(
-        "/api/users",
-        {"user": this.state}
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
+      this.props.addUser(user, this.handleSuccess);
+    };
+
+    handleSuccess = () => {
+      this.setState({
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
+        age: '',
+        weight_kg: '',
+        height_cm: '',
+        password: '',
+        passwordConfirmation: '',
       });
 
+      this.props.history.push('/');
     };
 
     render() {
+
+      const { first_name, last_name, username, email, password, passwordConfirmation, age, weight_kg, height_cm, } = this.state;
+
       return (
         <Container fluid className="mb-5">
         <Row> </Row>
@@ -68,7 +91,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="text"
               name= "first_name"
-              value={this.state.first_name}
+              value={first_name}
               onChange={this.handleInputChange}
               placeholder="First Name"
               />
@@ -81,7 +104,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="text"
               name= "last_name"
-              value={this.state.last_name}
+              value={last_name}
               onChange={this.handleInputChange}
               placeholder="Last Name"
               />
@@ -96,7 +119,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="text"
               name= "username"
-              value={this.state.username}
+              value={username}
               onChange={this.handleInputChange}
               placeholder="User Name"
               />
@@ -109,7 +132,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="email"
               name= "email"
-              value={this.state.email}
+              value={email}
               onChange={this.handleInputChange}
               placeholder="Email Address"
               />
@@ -125,7 +148,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="password"
               name= "password"
-              value={this.state.password}
+              value={password}
               onChange={this.handleInputChange}
               placeholder="Password"
               />
@@ -138,7 +161,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="password"
               name= "password_confirmation"
-              value={this.state.password_confirmation}
+              value={passwordConfirmation}
               onChange={this.handleInputChange}
               placeholder="Password Confirmation"
               />
@@ -151,7 +174,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="number"
               name= "age"
-              value={this.state.age}
+              value={age}
               onChange={this.handleInputChange}
               placeholder="Age"
               />
@@ -162,7 +185,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="number"
               name= "weight_kg"
-              value={this.state.weight_kg}
+              value={weight_kg}
               onChange={this.handleInputChange}
               placeholder="Weight in KG"
               />
@@ -173,7 +196,7 @@ export default class SignupForm extends React.Component {
               <Form.Control 
               type="number"
               name= "height_cm"
-              value={this.state.height_cm}
+              value={height_cm}
               onChange={this.handleInputChange}
               placeholder="Height in CM"
               />
@@ -190,4 +213,12 @@ export default class SignupForm extends React.Component {
       </Container>
       );
     }
-}
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      addUser: () => { dispatch(addUser()) }
+  }
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
