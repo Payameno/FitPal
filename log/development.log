@@ -8111,3 +8111,60 @@ Did you mean?  AbstractController
             raise MissingController.new(error.message, error.name)
             ^^^^^):
   
+Started GET "/instagram-icon.png" for 10.0.2.2 at 2022-08-09 02:29:59 +0000
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 02:29:59 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/instagram-icon.png"):
+  
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 26.5ms | ActiveRecord: 3.3ms | Allocations: 33531)
+
+
+Started GET "/instagram-icon.png" for 10.0.2.2 at 2022-08-09 02:36:53 +0000
+Started GET "/api/exercises" for 10.0.2.2 at 2022-08-09 02:36:53 +0000
+Processing by Api::ExercisesController#index as HTML
+  [1m[36mExercise Load (2.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises"[0m
+  ↳ app/controllers/api/exercises_controller.rb:8:in `index'
+Completed 200 OK in 32ms (Views: 31.9ms | ActiveRecord: 6.5ms | Allocations: 28325)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/instagram-icon.png"):
+  
+Started POST "/api/users" for 10.0.2.2 at 2022-08-09 02:37:18 +0000
+  
+SyntaxError (/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:22: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:25: syntax error, unexpected ===, expecting `end'
+=======
+^~~
+/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:28: syntax error, unexpected >>
+>>>>>>> f7d25661f9cfa1bc02a3722...
+^~
+/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:56: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:58: syntax error, unexpected ===, expecting `end'
+=======
+^~~
+/vagrant/1-Final Project/MacroPal/app/controllers/api/users_controller.rb:60: syntax error, unexpected >>, expecting `end'
+>>>>>>> f7d25661f9cfa1bc02a3722...
+^~
+):
+  
+app/controllers/api/users_controller.rb:22: syntax error, unexpected <<
+app/controllers/api/users_controller.rb:25: syntax error, unexpected ===, expecting `end'
+app/controllers/api/users_controller.rb:28: syntax error, unexpected >>
+app/controllers/api/users_controller.rb:56: syntax error, unexpected <<
+app/controllers/api/users_controller.rb:58: syntax error, unexpected ===, expecting `end'
+app/controllers/api/users_controller.rb:60: syntax error, unexpected >>, expecting `end'
+app/controllers/api/users_controller.rb:22: syntax error, unexpected <<
+app/controllers/api/users_controller.rb:25: syntax error, unexpected ===, expecting `end'
+app/controllers/api/users_controller.rb:28: syntax error, unexpected >>
+app/controllers/api/users_controller.rb:56: syntax error, unexpected <<
+app/controllers/api/users_controller.rb:58: syntax error, unexpected ===, expecting `end'
+app/controllers/api/users_controller.rb:60: syntax error, unexpected >>, expecting `end'
