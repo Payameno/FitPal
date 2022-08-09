@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    
+
     render json: @users
   end
 
@@ -19,13 +19,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-<<<<<<< HEAD
-      puts "We are here"
-      render json: @user
-=======
+
       render json: @user, 
-      #status: :created, location: @user
->>>>>>> f7d25661f9cfa1bc02a3722ad6293e1d479372dd
+      
     else
       render json: @user.errors, status: :unprocessable_entity
     end
