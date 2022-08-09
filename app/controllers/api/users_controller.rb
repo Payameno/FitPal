@@ -19,11 +19,15 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+<<<<<<< HEAD
 
+=======
+      session[:user_id] = @user.id
+>>>>>>> 0ddb0b56cde8d54254b4ae828fa960cbf54c2faf
       render json: @user, 
 
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: status: :unprocessable_entity
     end
   end
 
