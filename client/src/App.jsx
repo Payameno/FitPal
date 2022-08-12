@@ -66,7 +66,7 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
          <Route  exact path='/' element={<Main/>}/>
-         <Route  exact path='/login' element={<Login loginStatus={this.loginStatus} />}/>
+         <Route  exact path='/login' element={<Login handleLogin={this.handleLogin} />}/>
          <Route  exact path='/signup' element={<Signup handleLogin={this.handleLogin} />}/>
          <Route  exact path='/meals' element={<Meals/>}/>
          <Route  exact path='/diet' element={<Foodlist/>}/>
