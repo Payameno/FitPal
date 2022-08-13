@@ -1,24 +1,24 @@
 import Axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext  } from "react";
 import { useNavigate } from 'react-router-dom';
 import { randNumGen } from "../helpers/helpers"
 import { AppUnits } from "../hooks/useAppData"
+import { exerciseQueryContext } from '../Providers/ExerciseQueryProvider';
 import { Container, Row, Col, Form, Button, FloatingLabel } from 'react-bootstrap';
 import '../App.scss'
 import Exercise from './Exercise';
 
 export default function Workout (props) {
 
+  //UseContext
+  const { query, suggestions, queryItems, durations, onChangeHandler, onSuggestHandler, onBlurFunction, addExercise, onDurationInputChangeHandler } = useContext(exerciseQueryContext);
   const [cart, setCart] = useState([]);
   const [exercises, setExercises] = useState([]);
-  const [query, setQuery] = useState("");
-  const [queryItems, setQueryItems] = useState({});
-  const [suggestions, setSuggestions] = useState([]);
   const [exerciseCalories, setExerciseCalories] = useState("");
-  const [durations, setDurations] = useState("");
   const [exerciseCaloriesBurned, setExerciseCaloriesBurned] = useState([]);
   const [caloriesTotal, setCaloriesTotal] = useState("");
 
+  //import custom hook variables and functions
   const {
     units,
     setUnits,
@@ -106,72 +106,7 @@ useEffect(() => {
     }
   };
 
-  //Choose your Activity Input change
-  const onChangeHandler = (query) => {
- 
 
-    let matches = [];
-
-    if (query.length > 0) {
-
-      matches = exercises.filter( exercise => {
-        //gi modifier sets case insensitivity
-        const regex = new RegExp(`${query}`, "gi");
-        return exercise.name.match(regex)
-      })
-    }
-    setSuggestions(matches)
-    setQuery(query)
-  };
-//Input durations change handler
-  const onDurationInputChangeHandler = (event) => {
-
-    const regExp = /[a-zA-Z]/g;
-
-    if (!regExp.test(event.target.value)) {
-
-      setDurations(event.target.value)
-
-    }
-
-  };
-
-  const onSuggestHandler = (query) => {
-    setQuery(query.name);
-    setQueryItems(query);
-    setSuggestions([]);
-  };
-
-///////////Add Exercise ////////////
-  const addExercise = () => {
-
-
-//  object with exercise information
-    const exerciseData = {
-      exercise_id: randNumGen,
-      workout_id: queryItems.id,
-      exercise_duration: durations,
-    }
-
-      // async function to post the exercise object to backend
-      return Axios.post('/api/carts/add_exercise',   {"exercise_id": queryItems.id, "exercise_duration":durations})
-      .then((response) => {
-
-        //get cart(list of exercises added) data after an exercise is added,set the state of cart
-        //in future rmove and add a state instead
-
-        return Axios.get('/api/carts')
-        .then((response) => {
-        setCart(response.data);
-
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-      }).catch((error) => {
-        console.log(error);
-      });
-  }
 ////////////////////////////////////
   const submitAllExercise = () => {
 
@@ -208,9 +143,6 @@ useEffect(() => {
 
   }
 
-  console.log('suggestions', suggestions);
-console.log('query', query);
-
  return (
   <Container>
           <Row>
@@ -230,11 +162,7 @@ console.log('query', query);
                       type="text"
                       name= "activitiesQuery"
                       onChange={event => onChangeHandler(event.target.value)}
-                      onBlur={() => {
-                        setTimeout(() => {
-                          setSuggestions([])
-                        }, 2000)
-                      }}
+                      onBlur={() => onBlurFunction()}
                       value={query}
                       placeholder="Choose Your Activity"
                       />

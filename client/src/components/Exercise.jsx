@@ -1,18 +1,19 @@
 import Axios from "axios";
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { exerciseQueryContext } from '../Providers/ExerciseQueryProvider';
+import { exercises, setExercises, loadExercises } from "../hooks/useloadExercisesHook"
 import { Container, Row, Col, Form, Button, FloatingLabel, NavItem } from 'react-bootstrap';
 
 export default function WorkoutEdit2 (props) {
+
+const { query, suggestions, queryItems, durations, onChangeHandler, onSuggestHandler, addExercise, onDurationInputChangeHandler } = useContext(exerciseQueryContext);
+const [exerciseCalories, setExerciseCalories] = useState("");
 const [userWorkoutDetails, setUserWorkoutDetails] = useState({});
 const [exerciseEdit, setExerciseEdit] = useState(true);
-const exercises = userWorkoutDetails.exercises;
+const exercisesData = userWorkoutDetails.exercises;
 const lineExercise = userWorkoutDetails.line_exercises;
-////////// change to context API
-const [exercisesApi, setExercisesApi] = useState([]);
-const [query, setQuery] = useState("");
-const [suggestions, setSuggestions] = useState([]);
-const [queryItems, setQueryItems] = useState({});
-///////////////////////////////
+
+
 
 /////////// Get Exercise Info//////
 
@@ -62,49 +63,55 @@ const editExercise = (exerciseId) => {
 
     }
 
-//////////////////Workout.jsx change to context API
+//////////////////Workout.jsx Functions
+
 useEffect(() => {
 
-  const loadExercises = async() => {
-    // async function to get the exercise data from rails 
-    const response = await Axios.get('/api/exercises');
-    // response.data is an array with objects of exercises
-    console.log('response.data', response);
-    setExercisesApi(response.data)
-  }
   loadExercises();
   
 }, [])
 
-const onChangeHandler = (query) => {
- 
+//calculation exercise calorie when user inputs duration
 
-  let matches = [];
+  //Fetch user's weight
+  const userWeight = props.state.user.weight_kg;
 
-  if (query.length > 0) {
 
-    matches = exercisesApi.filter( exercise => {
-      //gi modifier sets case insensitivity
-      const regex = new RegExp(`${query}`, "gi");
-      return exercise.name.match(regex)
-    })
-  }
-  setSuggestions(matches)
-  setQuery(query)
-};
+useEffect(() => {
 
-const onSuggestHandler = (query) => {
-  setQuery(query.name);
-  setQueryItems(query);
-  setSuggestions([]);
-};
+  const calculateWorkoutCalories = () => {
+
+    const durationPerHour = (Number(durations)/60)
+//if weight is less than 130 pounds
+    if (weight(userWeight) <= 130) {
+      const result = queryItems.calories_burned_s * durationPerHour;
+      setExerciseCalories(result.toFixed(2));
+    }
+    if (weight(userWeight) > 130 && weight(userWeight) <= 155) {
+      const result = queryItems.calories_burned_m * durationPerHour;
+      setExerciseCalories(result.toFixed(2));
+    }
+    if (weight(userWeight) > 155 && weight(userWeight) <= 180) {
+      const result = queryItems.calories_burned_l * durationPerHour;
+      setExerciseCalories(result.toFixed(2));
+    }
+    if (weight(userWeight) > 180) {
+      const result = queryItems.calories_burned_xl * durationPerHour;
+      setExerciseCalories(result.toFixed(2));
+    }
+
+  };
+  calculateWorkoutCalories();
+
+}, [durations])
+
 //////////////////////
 
   return (
  
       <Row>
         <h1 className="mb-5">List of exercises: </h1>
-          {exercises && exercises.map((item, index) => {
+          {exercisesData && exercisesData.map((item, index) => {
             return (
 
               <div key={index}>
