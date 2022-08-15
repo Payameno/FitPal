@@ -470,8 +470,15 @@ const deleteMealItem = (foodId, index) => {
       </Col>
 
       </Col>
-  
+
+      {breakfastInfo.length === 0 && 
+
+      <Col></Col>
+
+      }
       
+  
+
       <Col>
 
 
@@ -705,7 +712,7 @@ const deleteMealItem = (foodId, index) => {
 
 
       </Col>
-
+        
       </Row>
 
     </Container>
