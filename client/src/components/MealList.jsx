@@ -27,6 +27,8 @@ const [snackInfo, setSnackInfo] = useState([]);
 ///////////////Initial stage when no date is selected////////
 useEffect(() => {
 
+  console.log("props",props)
+
   if (props.state.user.id && startDate === null) {
   Axios.get(`/api/meals/user/${props.state.user.id}`).then ( res => {
 

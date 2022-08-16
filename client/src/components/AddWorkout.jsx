@@ -33,6 +33,7 @@ export default function Workout (props) {
   //Fetch list of exercises
   useEffect(() => {
 
+
     const loadExercises = async() => {
       // async function to get the exercise data from rails 
       const response = await Axios.get('/api/exercises');
@@ -162,6 +163,7 @@ useEffect(() => {
         .then((response) => {
         setCart(response.data);
 
+        console.log(queryItems)
         })
         .catch((error) => {
           console.log(error);
@@ -171,6 +173,12 @@ useEffect(() => {
       });
   }
 
+  // NOTE: made changed date variable
+  // Sync date with how dates are added to meals
+  // Was showing a day earlier then current date using old format
+  // Possibly due to timezone
+  const date = new Date();
+  const currDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
 ///////////Workout Submit///////////
 
   const submitAllExercise = () => {
@@ -180,7 +188,7 @@ useEffect(() => {
           date: new Date(),
         }
           // async function to submit workout (cart) to rails
-          return Axios.post('/api/workouts',   {"user_id": userData.id, "date":userData.date})
+          return Axios.post('/api/workouts',   {"user_id": userData.id, "date":currDate})
           .then((response) => {
 
                 navigate('/WorkoutList');
