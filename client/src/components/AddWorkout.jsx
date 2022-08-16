@@ -141,7 +141,7 @@ useEffect(() => {
     setSuggestions([]);
   };
 
-///////////Add Exercise ////////////
+///////////Add Exercise ////////////////
   const addExercise = () => {
 
 
