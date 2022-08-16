@@ -24,10 +24,9 @@ const [snackInfo, setSnackInfo] = useState([]);
     }
 
 // Get Meal data for a specific user and date////////////////
-///////////////Initial stage when no date is selected////////
-useEffect(() => {
 
-  console.log("props",props)
+///////////////Initial stage when no date is selected = Today////////
+useEffect(() => {
 
   if (props.state.user.id && startDate === null) {
   Axios.get(`/api/meals/user/${props.state.user.id}`).then ( res => {
@@ -57,7 +56,6 @@ useEffect(() => {
 }
 
 }, [props.state]);
-
 
 /////////////////Date selected - Return Meal ID////////////////
   useEffect(() => {
