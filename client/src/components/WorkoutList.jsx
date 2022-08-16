@@ -82,21 +82,15 @@ Axios.get(`/api/workouts/user/${props.state.user.id}`).then ( res => {
         />
         <div className="mb-1">Please select a date</div>
 
-      {/* /* <Card className="background-img card mt-2">
+      <Card className="background-img card mt-2">
         <Card.Body>
-          <h3>Overview</h3>
+          <h3 className="text-center">Overview</h3>
         <div>
-          <h5><span>Calories</span></h5>
-          <h5 className="heading">Carbs</h5>
-        </div>
-        <div>
-          <h5 className="heading">Fat</h5>
-        </div>
-        <div>
-          <h5 className="heading">Protein g</h5>
+          <h5><span>Overall DUuration: {userWorkoutData.workout_duration} Min</span></h5>
+          <h5 className="heading">Workout Calories: {userWorkoutData.total_workout_calories} Kcal</h5>
         </div>
         </Card.Body>
-      </Card>  */}
+      </Card> 
 
 
       {/* <Col className="mt-3">
@@ -115,19 +109,6 @@ Axios.get(`/api/workouts/user/${props.state.user.id}`).then ( res => {
     <Col>
     {userWorkoutData.id &&
       <>
-      <Card className="mb-2 text-center">
-      <Card.Header>Summary</Card.Header>
-      <Card.Body>
-
-      <Col>
-      <div>Workout Duration: {userWorkoutData.workout_duration} minutes</div>
-      <div>Total Workout Calories: {userWorkoutData.total_workout_calories} </div>
-      <div>Work out Created at {userWorkoutData.date} </div>
-      <div>Last updated: {userWorkoutData.updated_at} </div>
-      </Col>
-
-      </Card.Body>
-      </Card>
 
       {userWorkoutData.id && 
       <Card>
