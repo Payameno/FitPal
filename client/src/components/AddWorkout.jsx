@@ -359,7 +359,7 @@ useEffect(() => {
 
             <Col>
               {cart.map((exerciseItem, index) => (
-                <div key={index} className="exercise-items mt-2">
+                <div key={index} className="gradient-multiline mt-2">
                 <div><span className="font-bold">{exerciseItem.exercise.name}</span> for <span className="data-info">{exerciseItem.exercise_duration} minutes</span>,  Calories: <span className="data-info">{exerciseCaloriesBurned[index+1]}</span></div>
                 </div>
               ))}

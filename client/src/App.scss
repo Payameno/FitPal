@@ -310,6 +310,29 @@ item-display-title {
     
     }
 
+    .exercise-items-list {
+      padding-left: 46px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      font-weight: bold;
+      
+      }
+
+.post-tools {
+  padding-right: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.post-button {
+  margin-left : 6px;
+}
+
   .background-img {
   color: white;
   background-image: url("/assets/media/images/overview-box.jpg");
