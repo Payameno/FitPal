@@ -33,8 +33,9 @@ export default function Meals (props) {
   let navigate = useNavigate()
 
   const fetchFood = async () => {
-    setIsLoading(true);
 
+    setIsLoading(true);
+    setMealSaved(false)
     console.log(queryFoodName)
 
     await Axios.post("/api/get_food",{"name": queryFoodName, "category": queryCategory, "amount_type":amountOption, "health": queryHealth}).then((response)=>{

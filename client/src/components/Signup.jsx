@@ -36,7 +36,7 @@ handleChange = (event) => {
     const {username, email, password, password_confirmation, first_name, last_name, age, weight_kg, height_cm } = this.state
     let user = {
       username: username,
-      email: email,
+      // email: email,
       password: password,
       password_confirmation: password_confirmation,
       first_name: first_name,
@@ -111,7 +111,8 @@ handleErrors = () => {
               />
             </Form.Group>
               </Col>
-
+            </Row>
+            <Row>
               <Col>
               <Form.Group className="mb-2">
               <Form.Label>Last Name</Form.Label>
@@ -129,18 +130,18 @@ handleErrors = () => {
             <Row>
               <Col>
               <Form.Group className="mb-2">
-              <Form.Label>User Name</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control 
               type="text"
               name= "username"
               value={username}
               onChange={this.handleChange}
-              placeholder="User Name"
+              placeholder="Username"
               />
             </Form.Group>
               </Col>
 
-              <Col>
+              {/* <Col>
               <Form.Group className="mb-2">
               <Form.Label>Email</Form.Label>
               <Form.Control 
@@ -151,7 +152,7 @@ handleErrors = () => {
               placeholder="Email Address"
               />
             </Form.Group>
-              </Col>
+              </Col> */}
 
             </Row>
 
@@ -168,6 +169,8 @@ handleErrors = () => {
               />
             </Form.Group>
               </Col>
+              </Row>
+              <Row>
 
               <Col>
               <Form.Group className="mb-2">
