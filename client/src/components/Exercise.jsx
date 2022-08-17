@@ -133,23 +133,6 @@ const onDurationInputChangeHandler = (event) => {
 
                 <div>
 
-                {/* {exerciseEdit !== index && <span>Total: {item.total_exercise_calories} Calories</span>
-                } */}
-
-                      {exerciseEdit === index &&
-                      <Button 
-                      className="mt-2" 
-                      variant="info" 
-                      type="submit"
-                      onClick={() => {lineExercise && submitExercise(lineExercise[index].id, index)}}
-                      >
-                        Submit
-                      </Button>
-                      
-                       }
-
-
-
                       <Row className="mb-2">
 
                       <Col className="post-tools">
@@ -164,8 +147,16 @@ const onDurationInputChangeHandler = (event) => {
                       </Button>
                       
                        }
+                       {exerciseEdit === index &&
+                      <Button 
+                      variant="info" 
+                      type="submit"
+                      onClick={() => {lineExercise && submitExercise(lineExercise[index].id, index)}}
+                      >
+                        Submit
+                      </Button>
                       
-
+                       }
                       
                       {exerciseEdit !== index &&
                       
@@ -178,6 +169,18 @@ const onDurationInputChangeHandler = (event) => {
                         Edit
                       </Button>
                      }
+                    {exerciseEdit === index &&
+                     
+                     <Button 
+                     className="post-button" 
+                     variant="info" 
+                     type="submit"
+                     onClick={() => {lineExercise && setExerciseEdit(-1)}}
+                     >
+                       Cancel
+                     </Button>
+                     
+                    }
                       </Col>
 
                       </Row>
@@ -185,18 +188,7 @@ const onDurationInputChangeHandler = (event) => {
 
 
                      
-                     {exerciseEdit === index &&
-                     
-                      <Button 
-                      className="mt-2" 
-                      variant="info" 
-                      type="submit"
-                      onClick={() => {lineExercise && setExerciseEdit(-1)}}
-                      >
-                        Cancel
-                      </Button>
-                      
-                     }
+
                     </div>
               </div>
             )
