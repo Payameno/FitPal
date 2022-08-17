@@ -9,7 +9,6 @@ const [userWorkoutDetails, setUserWorkoutDetails] = useState({});
 const [exerciseEdit, setExerciseEdit] = useState(-1);
 const [durations, setDurations] = useState("");
 const [exercises, setexercises] = useState([]);
-
 const lineExercise = userWorkoutDetails.line_exercises;
 
 useEffect(() => {
@@ -107,7 +106,7 @@ const onDurationInputChangeHandler = (event) => {
           {exercises && exercises.map((item, index) => {
             return (
 
-              <div key={index}>
+              <div className="post-section" key={index}>
 
                 <div >{item.exercise.name}, for the duration of {exerciseEdit !== index && item.exercise_duration} {exerciseEdit !== index && <span>Minutes</span>}</div>
 
